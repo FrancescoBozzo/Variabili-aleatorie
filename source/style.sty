@@ -2,8 +2,76 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english, italian]{babel}
 
-\usepackage{
-	,amsmath
-	,amssymb
-	,amsthm
+\usepackage{%
+	,amsmath%
+	,amssymb%
+	,amsthm%
+}
+
+\usepackage{enumitem}
+\usepackage{xifthen}
+
+\usepackage{pgfplots}
+\pgfplotsset{width=4cm, compat=1.5}
+
+\newenvironment{aleatoria}[2]%
+{%
+	\newcommand\densita[2][]{%
+		\subsubsection*{Funzione di densità}%
+		\begin{minipage}[b]{.4\textwidth}%
+			\[%
+				\textrm{Pr}(X = x) = ##2%
+			\]%
+		\end{minipage}%
+		\begin{minipage}[c]{.6\textwidth}%
+			\centering%
+			\ifthenelse{\equal{##1}{}}{}{%
+				\begin{tikzpicture}%
+					\begin{axis}[%
+							,ymin=0%
+							,ymax=1.3%
+							,axis lines=left%
+							,xlabel={$x$}%
+							,ylabel={$\text{Pr}(X=x)$}%
+						]%
+						\addplot [%
+							,red%
+							,domain=0:10%
+						]{##1};%
+					\end{axis}%
+				\end{tikzpicture}%
+			}%
+		\end{minipage}%
+	}%
+	\newcommand\distribuzione[2][]{%
+		\subsubsection*{Funzione di distribuzione}%
+		\begin{minipage}[b]{.4\textwidth}%
+			\[%
+				\textrm{Pr}(X < x) = ##2%
+			\]%
+		\end{minipage}%
+		\begin{minipage}[c]{.6\textwidth}%
+			\centering%
+			\ifthenelse{\equal{##1}{}}{}{%
+				\begin{tikzpicture}%
+					\begin{axis}[%
+							,ymin=0%
+							,ymax=1.3%
+							,axis lines=left%
+							,xlabel={$x$}%
+							,ylabel={$\text{Pr}(X<x)$}%
+						]%
+						\addplot [%
+							,red%
+							,domain=0:10%
+						]{##1};%
+					\end{axis}%
+				\end{tikzpicture}%
+			}
+		\end{minipage}%
+	}%
+	\par\noindent\medskip%
+	\section*{V.A. #1 X \(\sim\) #2}%
+}
+{%
 }

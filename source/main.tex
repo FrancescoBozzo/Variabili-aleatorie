@@ -6,25 +6,45 @@
 
 \usepackage{style}
 
+\title{\textsc{Riassunto variabili aleatorie}}
+\author{\textsc{Francesco Bozzo}}
+\date{\today}
+
 \begin{document}
 
-\date{\today}
-\title{Riassunto variabili aleatorie}
-\author{Francesco Bozzo}
 \maketitle
 
-\section*{Variabile aleatoria bernoulliana}
+\begin{aleatoria}{bernoulliana}{Ber}
+	Si utilizza per definire un singolo esperimento aleatorio.
+	\densita{
+		\begin{cases}
+			1-p & \text{per } x=0\\
+			p & \text{per } x=1
+		\end{cases}
+	}
+\end{aleatoria}
 
-\section*{Variabile aleatoria binomiale}
+\begin{aleatoria}{geometrica}{Geo}
+	\distribuzione[1-(1-0.5)^floor(x)]{1-(1-p)^{[x]}}
+\end{aleatoria}
 
-\section*{Variabile aleatoria binomiale negativa}
+\begin{aleatoria}{binomiale}{Bin}
 
-\section*{Variabile aleatoria di Poisson}
+\end{aleatoria}
 
-\section*{Variabile aleatoria di Gauss o Normale}
+\begin{aleatoria}{binomiale negativa}{BiNeg}
+\end{aleatoria}
 
-\section*{Variabile aleatoria esponenziale}
+\begin{aleatoria}{di Poisson}{Poi}
+\end{aleatoria}
 
-\section*{Variabile aleatoria uniforme}
+\begin{aleatoria}{di Gauss o normale}{Gau}
+\end{aleatoria}
+
+\begin{aleatoria}{esponenziale}{Esp}
+\end{aleatoria}
+
+\begin{aleatoria}{uniforme}{Unif}
+\end{aleatoria}
 
 \end{document}
