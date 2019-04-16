@@ -19,9 +19,9 @@
 	\newcommand\densita[2][]{%
 		\subsubsection*{Funzione di densità}%
 		\begin{minipage}[b]{.4\textwidth}%
-			\[%
+			\begin{equation*}
 				\textrm{Pr}(X = x) = ##2%
-			\]%
+			\end{equation*}
 		\end{minipage}%
 		\begin{minipage}[c]{.6\textwidth}%
 			\centering%
@@ -33,6 +33,7 @@
 							,axis lines=left%
 							,xlabel={$x$}%
 							,ylabel={$\text{Pr}(X=x)$}%
+							,samples=200%
 						]%
 						\addplot [%
 							,red%
@@ -46,9 +47,9 @@
 	\newcommand\distribuzione[2][]{%
 		\subsubsection*{Funzione di distribuzione}%
 		\begin{minipage}[b]{.4\textwidth}%
-			\[%
+			\begin{equation*}
 				\textrm{Pr}(X < x) = ##2%
-			\]%
+			\end{equation*}
 		\end{minipage}%
 		\begin{minipage}[c]{.6\textwidth}%
 			\centering%
@@ -60,6 +61,7 @@
 							,axis lines=left%
 							,xlabel={$x$}%
 							,ylabel={$\text{Pr}(X<x)$}%
+							,samples=200%
 						]%
 						\addplot [%
 							,red%
@@ -71,7 +73,7 @@
 		\end{minipage}%
 	}%
 	\par\noindent\medskip%
-	\section*{V.A. #1 X \(\sim\) #2}%
+	\section*{V.a. #1 X \(\sim\) #2}%
 }
 {%
 }

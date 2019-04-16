@@ -14,7 +14,7 @@
 
 \maketitle
 
-\begin{aleatoria}{bernoulliana}{Ber}
+\begin{aleatoria}{bernoulliana}{Ber(\(p\))}
 	Si utilizza per definire un singolo esperimento aleatorio.
 	\densita{
 		\begin{cases}
@@ -24,27 +24,53 @@
 	}
 \end{aleatoria}
 
-\begin{aleatoria}{geometrica}{Geo}
+\begin{aleatoria}{geometrica}{Geo(\(n, p\))}
 	\distribuzione[1-(1-0.5)^floor(x)]{1-(1-p)^{[x]}}
 \end{aleatoria}
 
-\begin{aleatoria}{binomiale}{Bin}
-
+\begin{aleatoria}{binomiale}{Bin(n, p)}
+	\densita[]{\binom{n}{k}p^k(1-p)^{n-k}}
 \end{aleatoria}
 
-\begin{aleatoria}{binomiale negativa}{BiNeg}
+\begin{aleatoria}{binomiale negativa}{NeBin(\(r, p\))}
+	\densita{
+		\begin{cases}
+			\binom{x-1}{r-1}p^r(1-p)^{x-r} & \text{per } x=r, r+1, \text{\dots}\\
+			0 & \text{altrimenti}
+		\end{cases}
+	}
 \end{aleatoria}
 
-\begin{aleatoria}{di Poisson}{Poi}
+\begin{aleatoria}{di Poisson}{Poisson(\(\lambda\))}
+	\densita{\frac{\lambda^k}{k!}e^{-\lambda}}
 \end{aleatoria}
 
-\begin{aleatoria}{di Gauss o normale}{Gau}
+\begin{aleatoria}{di Gauss o normale}{N(\(\mu, \sigma\))}
+	\densita[(3/sqrt(2*3.14))*exp(-0.5*(x-5)^2)]{\frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}}
 \end{aleatoria}
 
-\begin{aleatoria}{esponenziale}{Esp}
+\begin{aleatoria}{esponenziale}{Exp(\(\lambda\))}
+	\densita[1*exp(-1*x)]{
+	\begin{cases}
+		\lambda e^{-\lambda x} & \text{per } x \geqslant 0 \\
+		0 & \text{altrimenti}
+	\end{cases}
+	}
+	\distribuzione[1-exp(-1*x)]{
+		\begin{cases}
+			1 - e^{-\lambda x} & \text{per } x \geqslant 0 \\
+			0 & \text{altrimenti}
+		\end{cases}
+	}
 \end{aleatoria}
 
-\begin{aleatoria}{uniforme}{Unif}
+\begin{aleatoria}{uniforme}{Unif(\(a, b\))}
+	\densita{
+		\begin{cases}
+			\frac{1}{b-a} & \text{per } x \in (a, b] \\
+			0 & \text{altrimenti}
+		\end{cases}
+	}
 \end{aleatoria}
 
 \end{document}
