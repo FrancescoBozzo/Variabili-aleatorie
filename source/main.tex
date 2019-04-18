@@ -15,7 +15,7 @@
 \maketitle
 
 \begin{aleatoria}{bernoulliana}{Ber(\(p\))}
-	Si utilizza per definire un singolo esperimento aleatorio.
+	Si utilizza per definire un singolo esperimento aleatorio. X rappresenta il successo o il fallimento, che possono rispettivamente avvenire con probabilità \(p\) e \(1-p\).
 	\densita{
 		\begin{cases}
 			1-p & \text{per } x=0\\
@@ -25,6 +25,13 @@
 \end{aleatoria}
 
 \begin{aleatoria}{geometrica}{Geo(\(n, p\))}
+	X descrive il numero totale di prove necessarie prima che avvenga il primo successo. Ogni prova è stocatiscamente indipendente dagli altri e la probabiltà \(p\) che avvenga il singolo successo è costante.
+	\densita{
+		\begin{cases}
+			p(1-p)^{x-1} & \text{per } x=0,1,2,\dots\\
+			0 & \text{altrove }
+		\end{cases}
+	}
 	\distribuzione[1-(1-0.5)^floor(x)]{1-(1-p)^{[x]}}
 \end{aleatoria}
 
@@ -33,6 +40,7 @@
 \end{aleatoria}
 
 \begin{aleatoria}{binomiale negativa}{NeBin(\(r, p\))}
+	X descrive il numero totale di prove affinché avvengano \(r\) successi, ciascuno con probabilità \(p\).
 	\densita{
 		\begin{cases}
 			\binom{x-1}{r-1}p^r(1-p)^{x-r} & \text{per } x=r, r+1, \text{\dots}\\
@@ -42,6 +50,7 @@
 \end{aleatoria}
 
 \begin{aleatoria}{di Poisson}{Poisson(\(\lambda\))}
+	X descrive il numero di successi di un evento, quando il numero prove \(m\) tende ad infinito ed il prodotto \(mp\) è una costante. Ovvero mediamente si verificano un numero di successi \(\lambda\).
 	\densita{\frac{\lambda^k}{k!}e^{-\lambda}}
 \end{aleatoria}
 
