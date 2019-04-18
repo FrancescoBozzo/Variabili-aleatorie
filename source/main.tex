@@ -10,6 +10,8 @@
 \author{\textsc{Francesco Bozzo}}
 \date{\today}
 
+\newtheorem*{theorem}{Teorema}
+
 \begin{document}
 
 \maketitle
@@ -25,7 +27,7 @@
 \end{aleatoria}
 
 \begin{aleatoria}{geometrica}{Geo(\(n, p\))}
-	X descrive il numero totale di prove necessarie prima che avvenga il primo successo. Ogni prova è stocatiscamente indipendente dagli altri e la probabiltà \(p\) che avvenga il singolo successo è costante.
+	X descrive il numero totale di prove \(n\) necessarie prima che avvenga il primo successo. Ogni prova è stocasticamente indipendente dalle altre e la probabiltà \(p\) che avvenga il singolo successo è costante.
 	\probabilita{
 		\begin{cases}
 			p(1-p)^{x-1} & \text{per } x=0,1,2,\dots\\
@@ -33,10 +35,20 @@
 		\end{cases}
 	}
 	\distribuzione[1-(1-0.5)^floor(x)]{1-(1-p)^{[x]}}
+
+	\begin{theorem}[assenza di memoria]
+		\(\text{Pr}(T=m+n|T>m) = \text{Pr}(T=n)\)
+	\end{theorem}
+	\speranza{\frac{1}{p}}
+	\varianza{\frac{1-p}{p^2}}
 \end{aleatoria}
 
-\begin{aleatoria}{binomiale}{Bin(n, p)}
+\begin{aleatoria}{binomiale}{Bin(\(n, p\))}
+	X rappresenta la variabile che descrive il numero di successi \(x\) su \(n\) prove totali, con probabilità \(p\).
 	\probabilita{\binom{n}{k}p^k(1-p)^{n-k}}
+
+	\speranza{np}
+	\varianza{np(1-p)}
 \end{aleatoria}
 
 \begin{aleatoria}{binomiale negativa}{NeBin(\(r, p\))}
@@ -47,15 +59,37 @@
 			0 & \text{altrimenti}
 		\end{cases}
 	}
+
+	\begin{theorem}
+		\(X\sim\text{NeBin}(r,p)\text{, } Z\sim\text{Bin}(n,p) \implies \text{Pr}(Z\geqslant r) = \text{Pr}(X\leqslant n)\)
+	\end{theorem}
+	\speranza{\frac{n}{p}-n}
+	\varianza{n\frac{1-p}{p^2}}
 \end{aleatoria}
 
 \begin{aleatoria}{di Poisson}{Poisson(\(\lambda\))}
 	X descrive il numero di successi di un evento, quando il numero prove \(m\) tende ad infinito ed il prodotto \(mp\) è una costante. Ovvero mediamente si verificano un numero di successi \(\lambda\).
 	\probabilita{\frac{\lambda^k}{k!}e^{-\lambda}}
+
+	\speranza{\lambda}
+	\varianza{\lambda}
 \end{aleatoria}
 
 \begin{aleatoria}{di Gauss o normale}{N(\(\mu, \sigma\))}
+	Si definisce \(\mu\) il parametro di \emph{posizione} e \(\sigma\) il parametro di \emph{scala}. Si noti che non esiste un'espressione analitica per la funzione di distribuzione (si usino le \emph{tavole di Sheppard}).
 	\densita[(3/sqrt(2*3.14))*exp(-0.5*(x-5)^2)]{\frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}}
+
+	\begin{theorem}[standardizzazione delle variabili aleatorie]
+		\(X\sim\text{N}(\mu,\sigma)\implies z:=\frac{X-\mu}{\sigma}\sim\text{N}(0,1)\)
+	\end{theorem}
+	\begin{theorem}
+		\(Z\sim\text{N}(0,1)\text{, }\mu\in\mathbb{R}\text{, }\sigma\in\mathbb{R}^+\implies X=\sigma Z+\mu\sim\text{N}(\mu,\sigma)\)
+	\end{theorem}
+	\begin{theorem}
+		\(X\sim\text{N}(\mu,\sigma)\implies Y=a+bX\sim\text{N}(a+b\mu,b^2\sigma)\)
+	\end{theorem}
+	\speranza{\mu}
+	\varianza{\mu^2}
 \end{aleatoria}
 
 \begin{aleatoria}{esponenziale}{Exp(\(\lambda\))}
@@ -71,6 +105,12 @@
 			0 & \text{altrimenti}
 		\end{cases}
 	}
+
+	\begin{theorem}[assenza di memoria]
+		\(\text{Pr}(X>a+b|X>a) = \text{Pr}(X>b)\)
+	\end{theorem}
+	\speranza{\frac{1}{\lambda}}
+	\varianza{\frac{1}{\lambda^2}}
 \end{aleatoria}
 
 \begin{aleatoria}{uniforme}{Unif(\(a, b\))}
@@ -80,6 +120,9 @@
 			0 & \text{altrimenti}
 		\end{cases}
 	}
+
+	\speranza{\frac{1}{b-a}}
+	\varianza{\frac{(b-a)^2)}{12}}
 \end{aleatoria}
 
 \end{document}

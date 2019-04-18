@@ -16,6 +16,14 @@
 
 \newenvironment{aleatoria}[2]%
 {%
+	\newcommand\varianza[1]{%
+		\subparagraph*{Varianza}%
+		\(\mathbb{V}\text{ar}(X) = ##1\)%
+	}
+	\newcommand\speranza[1]{%
+		\subparagraph*{Speranza}%
+		\(\mathbb{E}(X) = ##1\)%
+	}
 	\newcommand\grafico[2]{%
 		\begin{tikzpicture}%
 			\begin{axis}[%
