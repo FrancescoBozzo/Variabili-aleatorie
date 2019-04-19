@@ -29,7 +29,7 @@
 	\varianza{p(1-p)}
 \end{aleatoria}
 
-\begin{aleatoria}{geometrica}{Geo(\(n, p\))}
+\begin{aleatoria}{geometrica}{Geo(\(p\))}
 	X descrive il numero totale di prove \(n\) necessarie prima che avvenga il primo successo. Ogni prova è stocasticamente indipendente dalle altre e la probabiltà \(p\) che avvenga il singolo successo è costante.
 	\probabilita{
 		\begin{cases}
@@ -92,7 +92,7 @@
 		\(X\sim\text{N}(\mu,\sigma)\implies Y=a+bX\sim\text{N}(a+b\mu,b^2\sigma)\)
 	\end{theorem}
 	\speranza{\mu}
-	\varianza{\mu^2}
+	\varianza{\sigma^2}
 \end{aleatoria}
 
 \begin{aleatoria}{esponenziale}{Exp(\(\lambda\))}
@@ -125,7 +125,7 @@
 	}
 
 	\speranza{\frac{1}{b-a}}
-	\varianza{\frac{(b-a)^2)}{12}}
+	\varianza{\frac{(b-a)^2}{12}}
 \end{aleatoria}
 
 \end{document}
