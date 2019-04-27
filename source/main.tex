@@ -33,7 +33,7 @@
 	X descrive il numero totale di prove \(n\) necessarie prima che avvenga il primo successo. Ogni prova è stocasticamente indipendente dalle altre e la probabiltà \(p\) che avvenga il singolo successo è costante.
 	\probabilita{
 		\begin{cases}
-			p(1-p)^{x-1} & \text{per } x=0,1,2,\dots\\
+			p(1-p)^{x-1} & \text{per } x=1,2,3,\dots\\
 			0 & \text{altrove }
 		\end{cases}
 	}
@@ -48,7 +48,7 @@
 
 \begin{aleatoria}{binomiale}{Bin(\(n, p\))}
 	X rappresenta la variabile che descrive il numero di successi \(x\) su \(n\) prove totali, con probabilità \(p\).
-	\probabilita{\binom{n}{k}p^k(1-p)^{n-k}}
+	\probabilita{\binom{n}{x}p^x(1-p)^{n-x}}
 
 	\speranza{np}
 	\varianza{np(1-p)}
@@ -66,13 +66,13 @@
 	\begin{theorem}
 		\(X\sim\text{NeBin}(r,p)\text{, } Z\sim\text{Bin}(n,p) \implies \text{Pr}(Z\geqslant r) = \text{Pr}(X\leqslant n)\)
 	\end{theorem}
-	\speranza{\frac{n}{p}-n}
+	\speranza{\frac{n}{p}}
 	\varianza{n\frac{1-p}{p^2}}
 \end{aleatoria}
 
 \begin{aleatoria}{di Poisson}{Poisson(\(\lambda\))}
 	X descrive il numero di successi di un evento, quando il numero prove \(m\) tende ad infinito ed il prodotto \(mp\) è una costante. Ovvero mediamente si verificano un numero di successi \(\lambda\).
-	\probabilita{\frac{\lambda^k}{k!}e^{-\lambda}}
+	\probabilita{\frac{\lambda^x}{x!}e^{-\lambda}}
 
 	\speranza{\lambda}
 	\varianza{\lambda}
